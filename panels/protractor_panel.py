@@ -18,7 +18,7 @@ FOtools: a set of blender tools to assist in 3D-Forensic analysis Alexander de B
 import bpy
 
 class Protractor_Panel(bpy.types.Panel):
-    bl_label = "Draw Triangle tool"
+    bl_label = "Draw Given Triangle tool"
     bl_idname = "ETVR_PT_FO_protractor_tools"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"

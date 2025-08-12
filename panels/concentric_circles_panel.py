@@ -63,8 +63,8 @@ class FOTOOLS_PT_concentric_circles(bpy.types.Panel):
     bpy.types.Scene.label_orientation = bpy.props.FloatProperty(
         name="Label orientation",
         description="The direction of the radius labels",
-        default=0.0,
-        unit='ROTATION'
+        default=0.0
+        #unit='ROTATION'
     )
 
 

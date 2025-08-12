@@ -26,7 +26,7 @@ class FOTOOLS_OT_concentric_circles(bpy.types.Operator):
         # This operator should only be active in Object Mode with an active object
         return context.active_object is not None and context.mode == 'OBJECT'
 
-    def _create_circle_and_label(self, context, radius, center, parent, target_obj, align, label_size):
+    def _create_circle_and_label(self, context, radius, center, parent, target_obj, align, label_size, label_orientation):
         """
         Helper function to create a single circle and its corresponding label,
         and parent them to a given object.
@@ -55,9 +55,7 @@ class FOTOOLS_OT_concentric_circles(bpy.types.Operator):
             # Calculate world position for the label by rotating the local offset
             label_location_world = center + (target_rotation_matrix @ label_offset_local)
 
-            #TODO: move this rotation to ui
-            # Combine target rotation with a 90-degree tilt for the label to make it lie flat
-            rot_x_90 = Euler((radians(90), 0, 0), 'XYZ')
+            rot_x_90 = Euler((radians(label_orientation), 0, 0), 'XYZ')
 
             final_rotation_matrix = target_rotation_matrix @ rot_x_90.to_matrix()
             label_rotation_euler = final_rotation_matrix.to_euler('XYZ')
@@ -65,9 +63,7 @@ class FOTOOLS_OT_concentric_circles(bpy.types.Operator):
             # Default world alignment (no rotation for circle)
             label_location_world = center + label_offset_local
 
-            #label_rotation_euler = Euler((radians(90), 0, 0), 'XYZ')
-            #TODO: move this rotation to ui
-            label_rotation_euler = Euler((radians(0), 0, 0), 'XYZ')
+            label_rotation_euler = Euler((radians(label_orientation), 0, 0), 'XYZ')
 
         # Create the text object with the calculated position and rotation
         bpy.ops.object.text_add(location=label_location_world, rotation=label_rotation_euler)
@@ -97,6 +93,7 @@ class FOTOOLS_OT_concentric_circles(bpy.types.Operator):
         radius_step = scene.concentric_radius_step
         align_to_object = scene.concentric_align_to_object
         label_size = scene.concentric_label_size
+        label_orientation = scene.label_orientation
 
         for i in range(num_circles):
             radius = start_radius + (i * radius_step)
@@ -107,7 +104,8 @@ class FOTOOLS_OT_concentric_circles(bpy.types.Operator):
                 parent_empty,
                 target_obj,
                 align_to_object,
-                label_size
+                label_size,
+                label_orientation
             )
 
         # Restore original selection
