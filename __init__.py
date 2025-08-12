@@ -96,7 +96,7 @@ classes = [
 
 
 def register():
-    add_material.register()
+    #add_material.register()
     print("Registering Protractor Operator")
     bpy.utils.register_class(OBJECT_OT_add_angle_protractor)
     bpy.types.VIEW3D_MT_mesh_add.append(add_visual_protractor_button)
@@ -104,7 +104,7 @@ def register():
         bpy.utils.register_class(cls)
 
 def unregister():
-    add_material.unregister()
+    #add_material.unregister()
     bpy.utils.unregister_class(OBJECT_OT_add_angle_protractor)
     bpy.types.VIEW3D_MT_mesh_add.remove(add_visual_protractor_button)
     for cls in reversed(classes):

@@ -69,13 +69,3 @@ def newShader(name: str, shader_type: str, r: float, g: float, b: float,
     if shader: # Ensure shader was created before linking
         links.new(shader.outputs[0], output.inputs[0])
         return mat
-
-classes = []
-
-def register():
-    for cls in classes:
-        bpy.utils.register_class(cls)
-
-def unregister():
-    for cls in reversed(classes):
-        bpy.utils.unregister_class(cls)
