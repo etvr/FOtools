@@ -47,6 +47,9 @@ from .panels.angle_measurement_panel import FOTOOLS_PT_AngleMeasurementPanel
 from .panels.advanced_ruler_panel import FOTOOLS_PT_AdvancedRulerPanel
 from .operators.advanced_ruler_operator import FOTOOLS_OT_AdvancedDrawRuler    
 from .utils import add_material
+from .panels.stats_panel import FOTOOLS_PT_mesh_info
+from .operators.stats_operator import get_mesh_stats
+
 
 # bl_info = {
 #     "name": "FOtools",
@@ -86,7 +89,9 @@ classes = [
     FOTOOLS_OT_MeasureAngle,
     FOTOOLS_PT_AngleMeasurementPanel,
     FOTOOLS_PT_AdvancedRulerPanel,
-    FOTOOLS_OT_AdvancedDrawRuler
+    FOTOOLS_OT_AdvancedDrawRuler,
+    FOTOOLS_PT_mesh_info,
+    get_mesh_stats
     ]
 
 
@@ -98,14 +103,12 @@ def register():
     for cls in classes:
         bpy.utils.register_class(cls)
 
-
 def unregister():
     add_material.unregister()
     bpy.utils.unregister_class(OBJECT_OT_add_angle_protractor)
     bpy.types.VIEW3D_MT_mesh_add.remove(add_visual_protractor_button)
     for cls in reversed(classes):
         bpy.utils.unregister_class(cls)
-
 
 
 if __name__ == "__main__":
