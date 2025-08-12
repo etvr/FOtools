@@ -35,6 +35,21 @@ def get_mesh_stats(obj: bpy.types.Object, context: bpy.types.Context) -> dict:
     area = sum(f.calc_area() for f in bm.faces)
     volume = bm.calc_volume()
 
+    if not (obj and obj.type == 'MESH' and obj.mode == 'EDIT'):  
+        deltax = 0.0
+        deltay = 0.0
+        deltaz = 0.0
+        distancev1v2 = 0.0
+    else:
+        bm = bmesh.from_edit_mesh(obj.data)
+        selected_verts_count = len([v for v in bm.verts if v.select])
+        if  (selected_verts_count == 2):
+            v1, v2 = [v for v in bm.verts if v.select]
+            deltax = v2.co.x - v1.co.x
+            deltay = v2.co.y - v1.co.y
+            deltaz = v2.co.z - v1.co.z
+            distancev1v2 = (deltax**2 + deltay**2 + deltaz**2)**0.5
+
     bm.free()
 
-    return {'area': area, 'volume': abs(volume)}
+    return {'area': area, 'volume': abs(volume), 'delta_X': abs(deltax), 'delta_Y': abs(deltay), 'delta_Z':deltax, 'delta_Y': deltay, 'delta_Z': deltaz, 'distance_v1_v2': abs(distancev1v2)}
