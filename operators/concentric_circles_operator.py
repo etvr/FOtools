@@ -55,6 +55,7 @@ class FOTOOLS_OT_concentric_circles(bpy.types.Operator):
             # Calculate world position for the label by rotating the local offset
             label_location_world = center + (target_rotation_matrix @ label_offset_local)
 
+            #TODO: move this rotation to ui
             # Combine target rotation with a 90-degree tilt for the label to make it lie flat
             rot_x_90 = Euler((radians(90), 0, 0), 'XYZ')
 
@@ -63,6 +64,7 @@ class FOTOOLS_OT_concentric_circles(bpy.types.Operator):
         else:
             # Default world alignment (no rotation for circle)
             label_location_world = center + label_offset_local
+
             #label_rotation_euler = Euler((radians(90), 0, 0), 'XYZ')
             #TODO: move this rotation to ui
             label_rotation_euler = Euler((radians(0), 0, 0), 'XYZ')

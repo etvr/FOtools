@@ -60,6 +60,13 @@ class FOTOOLS_PT_concentric_circles(bpy.types.Panel):
         unit='LENGTH'
     )
 
+    bpy.types.Scene.label_orientation = bpy.props.FloatProperty(
+        name="Label orientation",
+        description="The direction of the radius labels",
+        default=0.0,
+        unit='ROTATION'
+    )
+
 
     def draw(self, context):
         layout = self.layout
@@ -73,6 +80,7 @@ class FOTOOLS_PT_concentric_circles(bpy.types.Panel):
 
         layout.prop(scene, "concentric_align_to_object")
         layout.prop(scene, "concentric_label_size")
+        layout.prop(scene, "label_orientation")
 
         layout.separator()
         layout.operator("fotools.create_concentric_circles", text="Create Circles", icon="MESH_CIRCLE")
