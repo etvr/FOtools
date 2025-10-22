@@ -163,11 +163,9 @@ class VIEW3D_PT_camera_ray_caster(bpy.types.Panel):
         
         # Display information
         box = layout.box()
-        box.label(text="Instructions:")
-        box.label(text="1. Switch to camera view")
-        box.label(text="2. Click 'Cast Ray'")
-        box.label(text="3. Click in viewport to cast")
-        box.label(text="4. Right-click to cancel")
+        box.label(text="- Switch to camera view")
+        box.label(text="- Click 'Cast Ray and Click in viewport to cast")
+    
 
 classes = (
     RayCastProperties,
