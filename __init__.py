@@ -49,6 +49,8 @@ from .operators.advanced_ruler_operator import FOTOOLS_OT_AdvancedDrawRuler
 from .utils import add_material
 from .panels.stats_panel import FOTOOLS_PT_mesh_info
 from .operators.stats_operator import get_mesh_stats
+from .operators.camera_ray_operator import RayCastProperties, CameraRayCaster
+from .panels.camera_ray_panel import VIEW3D_PT_camera_ray_caster
 
 
 # bl_info = {
@@ -91,6 +93,9 @@ classes = [
     FOTOOLS_PT_AdvancedRulerPanel,
     FOTOOLS_OT_AdvancedDrawRuler,
     FOTOOLS_PT_mesh_info,
+    RayCastProperties,
+    CameraRayCaster,
+    VIEW3D_PT_camera_ray_caster,
     get_mesh_stats
     ]
 
@@ -102,6 +107,7 @@ def register():
     bpy.types.VIEW3D_MT_mesh_add.append(add_visual_protractor_button)
     for cls in classes:
         bpy.utils.register_class(cls)
+    bpy.types.Scene.ray_cast_props = bpy.props.PointerProperty(type=RayCastProperties)
 
 def unregister():
     #add_material.unregister()
@@ -109,6 +115,7 @@ def unregister():
     bpy.types.VIEW3D_MT_mesh_add.remove(add_visual_protractor_button)
     for cls in reversed(classes):
         bpy.utils.unregister_class(cls)
+        del bpy.types.Scene.ray_cast_props
 
 
 if __name__ == "__main__":
