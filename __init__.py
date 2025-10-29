@@ -12,7 +12,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-FOtools: a set of blender tools to assist in 3D-Forensic analysis Alexander de Bruijn 2022
+FOtools: a set of blender tools to assist in 3D-Forensic analysis Alexander de Bruijn 2025
 '''
 
 import bpy
@@ -49,8 +49,8 @@ from .operators.advanced_ruler_operator import FOTOOLS_OT_AdvancedDrawRuler
 from .utils import add_material
 from .panels.stats_panel import FOTOOLS_PT_mesh_info
 from .operators.stats_operator import get_mesh_stats
-from .operators.camera_ray_operator import RayCastProperties, CameraRayCaster
-from .panels.camera_ray_panel import VIEW3D_PT_camera_ray_caster
+from .operators.camera_ray_operator import CameraRayCaster
+from .panels.camera_ray_panel import RayCastProperties, VIEW3D_PT_camera_ray_caster
 
 
 # bl_info = {

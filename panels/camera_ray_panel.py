@@ -36,8 +36,8 @@ class RayCastProperties(bpy.types.PropertyGroup):
 class VIEW3D_PT_camera_ray_caster(bpy.types.Panel):
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
-    bl_category = 'Ray Cast'
-    bl_label = "Camera Ray Caster"
+    bl_category = 'FOtools'
+    bl_label = "Extend Line From Camera View"
     
     def draw(self, context):
         layout = self.layout
