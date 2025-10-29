@@ -1,6 +1,5 @@
 """
 FOTools Custom Square Empty Gizmo
-A complete single-file implementation for creating custom square empty objects in Blender.
 """
 
 import bpy
