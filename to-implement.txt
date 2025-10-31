@@ -23,11 +23,14 @@
 # TODO: ui           : place parametric humanoid m/f figure
 # TODO: ui           : checkbox to retain tracking of the cone to secondary point
 # TODO: ui           : toggle radius cutter,
+#
 # TODO: ui           : add icon to circle fit "MESH_CIRCLE"
 # TODO: ui           : add icon to plane fit "MESH_PLANE"
 # TODO: ui           : add icon to sphere fit "MESH UV SPHERE"
 # TODO: ui           : add icon to cylinder fit "MESH_CYCLINDER"
 # TODO: ui           : add icon to line fit "FIXED_SIZE"
+# 
+# TODO: ui tweak    : mesh info pannel schould only show distance and deltax ,y,and z if 2 objects or components are selected
 #
 # TODO: research     : create a voxel mesh from a pointcloud (embed numpy and open3d)
 # TODO: research     : embed pnppoint
@@ -44,7 +47,7 @@
 #
 #-----------------------------------------------------------------------------------------------------------------------------------------------------#
 #--- measuring
-# angle measurement in 10th degree angle, with clear renderable labels
+# angle measurement to the 10th degree, clear renderable labels
 # dimension lines with clear renderable labels
 #
 # 360 poly protractor 1 axix
@@ -52,6 +55,7 @@
 #   360 poly protractor 3axis
 # 180 poly protractor 2 axis
 # 180 poly protractor 3axis
+#
 #
 #-----------------------------------------------------------------------------------------------------------------------------------------------------#
 # TODO: bug         : the circulair grid applys double the origin offset while drawing 

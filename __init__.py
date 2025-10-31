@@ -51,6 +51,9 @@ from .panels.stats_panel import FOTOOLS_PT_mesh_info
 from .operators.stats_operator import get_mesh_stats
 from .operators.camera_ray_operator import CameraRayCaster
 from .panels.camera_ray_panel import RayCastProperties, VIEW3D_PT_camera_ray_caster
+from .panels.geotriangle_panel import FOT_PT_GeodreieckImporter
+from .operators.geotriangle_operator import FOT_OT_Importgeotriangle
+
 
 
 # bl_info = {
@@ -96,6 +99,8 @@ classes = [
     RayCastProperties,
     CameraRayCaster,
     VIEW3D_PT_camera_ray_caster,
+    FOT_OT_Importgeotriangle,
+    FOT_PT_GeodreieckImporter,
     get_mesh_stats
     ]
 
