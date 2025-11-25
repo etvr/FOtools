@@ -72,7 +72,8 @@ class CAMERA_OT_create_backplane(bpy.types.Operator):
                 width = cam_data.ortho_scale
                 height = width / render_aspect
         
-        # Multiply dimensions by 2 to make plane twice as large
+        # [HACK] Multiply dimensions by 2 to make plane twice as large
+        # and still this does not work with portrait orientation cameras
         width *= 2
         height *= 2
         
