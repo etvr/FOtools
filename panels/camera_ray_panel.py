@@ -39,16 +39,17 @@ class VIEW3D_PT_camera_ray_caster(bpy.types.Panel):
     bl_category = 'FOtools'
     bl_label = "Extend Line From Camera View"
     
+
     def draw(self, context):
         layout = self.layout
         scene = context.scene
-        ray_cast_props = scene.ray_cast_props
         
-        layout.prop(ray_cast_props, "ray_length")
-        layout.prop(ray_cast_props, "cylinder_radius")
+        layout.prop(scene, "ray_length")
+        layout.prop(scene, "cylinder_radius")
         layout.operator("view3d.camera_ray_caster", text="Click to Cast Ray")
         
         # Display information
         box = layout.box()
         box.label(text="- Switch to camera view")
-        box.label(text="- Click 'Cast Ray and Click in viewport to cast")
+        box.label(text="- Click 'Cast Ray and Click in viewport to cast'")
+    

@@ -1,6 +1,6 @@
 import bpy
-import gpu
-import bgl
+#import gpu
+#import bgl
 import numpy as np
 from bpy_extras import view3d_utils
 from mathutils import Vector, Matrix
