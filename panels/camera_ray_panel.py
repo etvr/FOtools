@@ -44,12 +44,12 @@ class VIEW3D_PT_camera_ray_caster(bpy.types.Panel):
         layout = self.layout
         scene = context.scene
         
-        layout.prop(scene, "ray_length")
-        layout.prop(scene, "cylinder_radius")
+        layout.prop(scene, "Ray Length")
+        layout.prop(scene, "Cylinder Radius")
         layout.operator("view3d.camera_ray_caster", text="Click to Cast Ray")
         
         # Display information
         box = layout.box()
         box.label(text="- Switch to camera view")
-        box.label(text="- Click 'Cast Ray and Click in viewport to cast'")
+        box.label(text="- Click 'Cast Ray' and Click in viewport")
     

@@ -19,7 +19,7 @@ class FOT_PT_GeodreieckImporter(bpy.types.Panel):
    # bl_idname = "FOT_PT_geodreieck_importer"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
-    bl_category = 'FOTools'
+    bl_category = 'FOtools'
     
     def draw(self, context):
         layout = self.layout

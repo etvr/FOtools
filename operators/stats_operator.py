@@ -22,7 +22,7 @@ def get_mesh_stats(obj: bpy.types.Object, context: bpy.types.Context) -> dict:
         dict: A dictionary with 'area' and 'volume' keys.
     """
     if not obj or obj.type != 'MESH':
-        return {'area': 0.0, 'volume': 0.0}
+        return {'area': 0.0, 'volume': 0.0,'delta_X':0.0, 'delta_Y':0.0, 'delta_Z':0.0, 'distance_v1_v2':0.0}
 
     depsgraph = context.evaluated_depsgraph_get()
     evaluated_obj = obj.evaluated_get(depsgraph)
@@ -36,10 +36,10 @@ def get_mesh_stats(obj: bpy.types.Object, context: bpy.types.Context) -> dict:
     volume = bm.calc_volume()
 
     if not (obj and obj.type == 'MESH' and obj.mode == 'EDIT'):  
-        deltax = 0.0
-        deltay = 0.0
-        deltaz = 0.0
-        distancev1v2 = 0.0
+        deltax = 0.0000
+        deltay = 0.0000
+        deltaz = 0.0000
+        distancev1v2 = 0.0000
     else:
         bm = bmesh.from_edit_mesh(obj.data)
         selected_verts_count = len([v for v in bm.verts if v.select])
@@ -49,7 +49,12 @@ def get_mesh_stats(obj: bpy.types.Object, context: bpy.types.Context) -> dict:
             deltay = v2.co.y - v1.co.y
             deltaz = v2.co.z - v1.co.z
             distancev1v2 = (deltax**2 + deltay**2 + deltaz**2)**0.5
+        else:
+            deltax = 0.0000
+            deltay = 0.0000
+            deltaz = 0.0000
+            distancev1v2 = 0.0000
 
     bm.free()
 
-    return {'area': area, 'volume': abs(volume), 'delta_X': abs(deltax), 'delta_Y': abs(deltay), 'delta_Z':deltax, 'delta_Y': deltay, 'delta_Z': deltaz, 'distance_v1_v2': abs(distancev1v2)}
+    return {'area':area, 'volume':abs(volume), 'delta_X':deltax, 'delta_Y':deltay, 'delta_Z':deltax, 'distance_v1_v2':abs(distancev1v2)}
