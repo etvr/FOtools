@@ -40,12 +40,13 @@ class CameraRayCaster(bpy.types.Operator):
                 ray_origin = camera.matrix_world.translation
             
             # Calculate ray end point
-            ray_length = context.scene.ray_cast_props.ray_length
+            #ray_length = context.scene.ray_cast_props.ray_length
+            ray_length = bpy.context.scene.ray_length
             ray_end = ray_origin + view_vector * ray_length
             
             # Create a cylinder mesh to represent the ray
             bpy.ops.mesh.primitive_cylinder_add(
-                radius=context.scene.ray_cast_props.cylinder_radius,
+                radius=bpy.context.scene.cylinder_radius,
                 depth=ray_length,
                 enter_editmode=False,
                 location=(0, 0, 0)

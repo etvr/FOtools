@@ -28,7 +28,7 @@ class RayCastProperties(bpy.types.PropertyGroup):
     cylinder_radius: bpy.props.FloatProperty(
         name="Cylinder Radius",
         description="Radius of the ray cylinder",
-        default=0.05,
+        default=0.01,
         min=0.01,
         max=1.0
     ) 
@@ -38,6 +38,22 @@ class VIEW3D_PT_camera_ray_caster(bpy.types.Panel):
     bl_region_type = 'UI'
     bl_category = 'FOtools'
     bl_label = "Extend Line From Camera View"
+
+    bpy.types.Scene.ray_length = bpy.props.FloatProperty(
+        name="Ray Length", 
+        description="Length of the ray cylinder",
+        default=10.0,
+        min=0.1,
+        max=100.0
+        )
+    
+    bpy.types.Scene.cylinder_radius =bpy.props.FloatProperty(
+        name="Cylinder Radius",
+        description="Radius of the ray cylinder",
+        default=0.05,
+        min=0.01,
+        max=1.0
+        ) 
     
 
     def draw(self, context):

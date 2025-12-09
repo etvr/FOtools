@@ -25,9 +25,29 @@ class Protractor_Panel(bpy.types.Panel):
     #bl_context = "objectmode"
     bl_category = "FOtools"
 
-    bpy.types.Scene.vertical_protractor_angle = bpy.props.FloatProperty( name="Vertical Angle", description=" Angle for the vertical angle polygon", min=0.0, max=360.0, default=44.0,)
-    bpy.types.Scene.horizontal_protractor_angle = bpy.props.FloatProperty( name="Horizontal Angle", description=" Angle for the horizontal angle polygon", min=0.0, max=360.0, default=44.0,)
-    bpy.types.Scene.protractor_radius = bpy.props.FloatProperty( name="Radius", description=" Radius of the drawn polygon", min=0.0, max=100.0, default=1.0,)
+    bpy.types.Scene.vertical_protractor_angle = bpy.props.FloatProperty( 
+        name="Vertical Angle", 
+        description=" Angle for the vertical angle polygon", 
+        min=0.0, 
+        max=360.0, 
+        default=44.0,
+        
+        )
+    bpy.types.Scene.horizontal_protractor_angle = bpy.props.FloatProperty( 
+        name="Horizontal Angle", 
+        description=" Angle for the horizontal angle polygon", 
+        min=0.0, 
+        max=360.0, 
+        default=44.0,
+        )
+    
+    bpy.types.Scene.protractor_radius = bpy.props.FloatProperty( 
+        name="Radius", 
+        description=" Radius of the drawn polygon", 
+        min=0.0, 
+        max=100.0, 
+        default=1.0,
+        )
 
     def draw(self, context):
         layout = self.layout
