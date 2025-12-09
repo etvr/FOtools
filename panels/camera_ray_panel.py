@@ -50,6 +50,6 @@ class VIEW3D_PT_camera_ray_caster(bpy.types.Panel):
         
         # Display information
         box = layout.box()
-        box.label(text="- Switch to camera view")
+        box.label(text="- Switch to camera view, num-0")
         box.label(text="- Click 'Cast Ray' and Click in viewport")
     
