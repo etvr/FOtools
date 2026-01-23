@@ -101,7 +101,8 @@ classes = [
     VIEW3D_PT_camera_ray_caster,
     FOT_OT_Importgeotriangle,
     FOT_PT_GeodreieckImporter,
-    get_mesh_stats
+    #get_mesh_stats
+    # get mesh stat is a functiuon, not a class
     ]
 
 
