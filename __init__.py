@@ -121,7 +121,7 @@ def unregister():
     bpy.types.VIEW3D_MT_mesh_add.remove(add_visual_protractor_button)
     for cls in reversed(classes):
         bpy.utils.unregister_class(cls)
-        del bpy.types.Scene.ray_cast_props
+    #    delelete bpy.types.Scene.ray_cast_props
 
 
 if __name__ == "__main__":
