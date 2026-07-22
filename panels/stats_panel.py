@@ -56,3 +56,5 @@ class FOTOOLS_PT_mesh_info(bpy.types.Panel):
         row = col.row()
         row.label(text="Distance")
         row.label(text=f"{stats['distance_v1_v2']:.4f} m")
+
+        

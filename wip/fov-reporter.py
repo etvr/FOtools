@@ -142,8 +142,16 @@ class VIEW3D_PT_selected_camera_fov(bpy.types.Panel):
         loc = cam_obj.matrix_world.to_translation()
         rx, ry, rz = _world_euler_degrees(cam_obj, order='XYZ')
 
-        col.label(text=f"Location: X {loc.x:.4f}, Y {loc.y:.4f}, Z {loc.z:.4f}")
-        col.label(text=f"Rotation (XYZ): X {rx:.2f}°, Y {ry:.2f}°, Z {rz:.2f}°")
+        col.label(text=f"Location: X,Y,Z:")
+        col.label(text=f" X: {loc.x:.3f},")
+        col.label(text=f" Y: {loc.y:.3f},")
+        col.label(text=f" Z: {loc.z:.3f}")
+
+        col.label(text=f" ")
+        col.label(text=f"Rotation (XYZ)")
+        col.label(text=f"X: {rx:.2f}°,")
+        col.label(text=f"Y: {ry:.2f}°,")
+        col.label(text=f"Z: {rz:.2f}°")
 
 
 classes = (
